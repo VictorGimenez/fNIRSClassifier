@@ -1,7 +1,7 @@
 # fNIRSClassifier
-Scripts made to classify fNIRS Oxy and Deoxy datasets
+fNIRS Oxy and Deoxy datasets classification based on the Michael Nielsen's scripts.
 
-Code adapted from Chapter 1 of the Neural Networks and Deep Learning booklet by Michael Nielsen: NIELSEN, Michael A. Neural networks and deep learning. San Francisco, CA, USA: Determination press, 2015. https://github.com/mnielsen/neural-networks-and-deep-learning and modified for Python 3.x by Michal Daniel Dobrzanski: https://github. com/MichalDanielDobrzanski/DeepLearningPython.    
+Code adapted from Chapter 1 of the Neural Networks and Deep Learning booklet by Michael Nielsen: NIELSEN, Michael A. Neural networks and deep learning. San Francisco, CA, USA: Determination press, 2015. fNIRS Oxy and Deoxy datasets classification based on the Michael Nielsen's scripts: https://github.com/mnielsen/neural-networks-and-deep-learning/tree/master/src and modified for Python 3.x by Michal Daniel Dobrzanski: https://github. com/MichalDanielDobrzanski/DeepLearningPython.    
 
 Subsequently, to plot the graphs manually of Oxy and Deoxy, the average obtained for each number of neurons (Total of 20) in the hidden layer was taken and the two graphs were performed using the matplotlib module
 
