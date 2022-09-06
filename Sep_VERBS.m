@@ -1,18 +1,22 @@
-%CÛdigo para organizar os bloquinhos do experimento 
+%
+%Script developed by (DA SILVA SOUZA, Dayse et al.) dayse.s.s@hotmail.com as part of the study for separate the generated text data into blocks%
+%
+
+%C√≥digo para organizar os bloquinhos do experimento 
 %ordem dos verbos (linhas): chutar, mexer, olhar, beijar
-%colunas s„o repetiÁıes (cada participante tem tres colunas)
-%agrupar os verbos para cada sujeito nas trÍs repetiÁıes
+%colunas s√£o repeti√ß√µes (cada participante tem tres colunas)
+%agrupar os verbos para cada sujeito nas tr√™s repeti√ß√µes
 
 %Criando a lista com os dados da ts em .txt
 scan_file = dir('/home/victor/Desktop/coleta_analise_FNIRS/AnaliseR_Victor/TS.csv');
 
-%DiretÛrio de onde ser„o salvas as mÈdias por sujeito, por condiÁ„o, por verbo
+%Diret√≥rio de onde ser√£o salvas as m√©dias por sujeito, por condi√ß√£o, por verbo
 dataname_sub_ver_verbo = ('/home/victor/Desktop/coleta_analise_FNIRS/AnaliseR_Victor/oxy/mean_sub/ver_verbo/');
 dataname_sub_ver_video = ('/home/victor/Desktop/coleta_analise_FNIRS/AnaliseR_Victor/oxy/mean_sub/ver_video/');
 dataname_sub_ver_fazer_verbo = ('/home/victor/Desktop/coleta_analise_FNIRS/AnaliseR_Victor/oxy/mean_sub/ver_fazer_verbo/');
 dataname_sub_ver_fazer_video = ('/home/victor/Desktop/coleta_analise_FNIRS/AnaliseR_Victor/oxy/mean_sub/ver_fazer_video/');
 
-%DiretÛrio de onde ser„o salvas as mÈdias do grupo, por condiÁ„o, por verbo
+%Diret√≥rio de onde ser√£o salvas as m√©dias do grupo, por condi√ß√£o, por verbo
 dataname_ver_verbo = ('/home/victor/Desktop/coleta_analise_FNIRS/AnaliseR_Victor/oxy/general_mean/ver_verbo/');
 dataname_ver_video = ('/home/victor/Desktop/coleta_analise_FNIRS/AnaliseR_Victor/oxy/general_mean/ver_video/');
 dataname_ver_fazer_verbo = ('/home/victor/Desktop/coleta_analise_FNIRS/AnaliseR_Victor/oxy/general_mean/ver_fazer_verbo/');
@@ -25,7 +29,7 @@ t_ver_fazer_verbo = load ('/home/victor/Desktop/coleta_analise_FNIRS/AnaliseR_Vi
 t_ver_fazer_video = load ('/home/victor/Desktop/coleta_analise_FNIRS/AnaliseR_Victor/triggers/ver_fazer_video.txt');
 
 %VER VERBO
-%Criando vari·veis para agrupar os boquinhos de repetiÁ„o
+%Criando vari√°veis para agrupar os boquinhos de repeti√ß√£o
 ver_verbo=[];
 ver_verbo.chutar = zeros(3,42,74);
 ver_verbo.mexer = zeros(3,42,74);
@@ -37,7 +41,7 @@ mean_ver_verbo.mexer = zeros(15,42,74);
 mean_ver_verbo.olhar = zeros(15,42,74);
 mean_ver_verbo.beijar = zeros(15,42,74);
 
-participantes = cell(15,1); %linha È o n de sujeitos
+participantes = cell(15,1); %linha √© o n de sujeitos
 
 %Oxy
 for i=1:15
@@ -53,13 +57,13 @@ for i=1:15
             ver_verbo.beijar(k,:,:) = data_oxy(:,t_ver_verbo(4,k):t_ver_verbo(4,k)+73);   
             end
         
-    %MÈdia dos verbos por sujeito
+    %M√©dia dos verbos por sujeito
     mean_ver_verbo.chutar(i,:,:) = mean (ver_verbo.chutar,1);
     mean_ver_verbo.mexer(i,:,:) = mean (ver_verbo.mexer,1);
     mean_ver_verbo.olhar(i,:,:) = mean (ver_verbo.olhar,1);
     mean_ver_verbo.beijar(i,:,:) = mean (ver_verbo.beijar,1);
       
-    %Salvando em .txt a mÈdia dos verbos para todos os sujeitos
+    %Salvando em .txt a m√©dia dos verbos para todos os sujeitos
     name = string(dataname_sub_ver_verbo);
     num = string(i);
     name = strcat(name,num,'mean_ver_verbo.chutar.txt');
@@ -86,13 +90,13 @@ clear ver_verbo.olhar
 clear ver_verbo.beijar
 end
 
-%MÈdia dos verbos para todos os sujeitos
+%M√©dia dos verbos para todos os sujeitos
 general_mean_ver_verbo.chutar = mean (mean_ver_verbo.chutar,1);
 general_mean_ver_verbo.mexer = mean (mean_ver_verbo.mexer,1);
 general_mean_ver_verbo.olhar = mean (mean_ver_verbo.olhar,1);
 general_mean_ver_verbo.beijar = mean (mean_ver_verbo.beijar,1);
 
-%Salvando em .txt a mÈdia dos verbos para todos os sujeitos
+%Salvando em .txt a m√©dia dos verbos para todos os sujeitos
 name = string(dataname_ver_verbo);
 name = strcat(name,'general_mean_ver_verbo.chutar.txt');
 dlmwrite(name,general_mean_ver_verbo.chutar,'delimiter','\t','newline','pc');
@@ -111,7 +115,7 @@ dlmwrite(name,general_mean_ver_verbo.beijar,'delimiter','\t','newline','pc');
 
 %VER VIDEO
 
-%Criando vari·veis para agrupar os boquinhos de repetiÁ„o
+%Criando vari√°veis para agrupar os boquinhos de repeti√ß√£o
 ver_video=[];
 ver_video.chutar = zeros(3,42,74);
 ver_video.mexer = zeros(3,42,74);
@@ -123,7 +127,7 @@ mean_ver_video.mexer = zeros(15,42,74);
 mean_ver_video.olhar = zeros(15,42,74);
 mean_ver_video.beijar = zeros(15,42,74);
 
-participantes = cell(15,1); %linha È o n de sujeitos
+participantes = cell(15,1); %linha √© o n de sujeitos
 
 %Oxy
 for i=1:15
@@ -139,13 +143,13 @@ for i=1:15
             ver_video.beijar(l,:,:) = data_oxy(:,t_ver_video(4,k):t_ver_video(4,k)+73);
             end
             
-    %MÈdia dos verbos por sujeito
+    %M√©dia dos verbos por sujeito
     mean_ver_video.chutar(i,:,:) = mean (ver_verbo.chutar,1);
     mean_ver_video.mexer(i,:,:) = mean (ver_verbo.mexer,1);
     mean_ver_video.olhar(i,:,:) = mean (ver_verbo.olhar,1);
     mean_ver_video.beijar(i,:,:) = mean (ver_verbo.beijar,1);
      
-    %Salvando em .txt a mÈdia dos verbos para todos os sujeitos
+    %Salvando em .txt a m√©dia dos verbos para todos os sujeitos
     name = string(dataname_sub_ver_video);
     num = string(i);
     name = strcat(name,num,'mean_ver_video.chutar.txt');
@@ -173,13 +177,13 @@ for i=1:15
 
 end
 
-%MÈdia dos verbos para todos os sujeitos
+%M√©dia dos verbos para todos os sujeitos
 general_mean_ver_video.chutar = mean (mean_ver_verbo.chutar,1);
 general_mean_ver_video.mexer = mean (mean_ver_verbo.mexer,1);
 general_mean_ver_video.olhar = mean (mean_ver_verbo.olhar,1);
 general_mean_ver_video.beijar = mean (mean_ver_verbo.beijar,1);
 
-%Salvando em .txt a mÈdia dos verbos para todos os sujeitos
+%Salvando em .txt a m√©dia dos verbos para todos os sujeitos
 name = string(dataname_ver_video);
 name = strcat(name,'general_mean_ver_video.chutar.txt');
 dlmwrite(name,general_mean_ver_video.chutar,'delimiter','\t','newline','pc');
@@ -199,7 +203,7 @@ dlmwrite(name,general_mean_ver_video.beijar,'delimiter','\t','newline','pc');
 %VER FAZER VERBO
 
 
-%Criando vari·veis para agrupar os boquinhos de repetiÁ„o
+%Criando vari√°veis para agrupar os boquinhos de repeti√ß√£o
 ver_fazer_verbo=[];
 ver_fazer_verbo.chutar = zeros(3,42,74);
 ver_fazer_verbo.mexer = zeros(3,42,74);
@@ -211,7 +215,7 @@ mean_ver_fazer_verbo.mexer = zeros(15,42,74);
 mean_ver_fazer_verbo.olhar = zeros(15,42,74);
 mean_ver_fazer_verbo.beijar = zeros(15,42,74);
 
-participantes = cell(15,1); %linha È o n de sujeitos
+participantes = cell(15,1); %linha √© o n de sujeitos
 
 %Oxy
 for i=1:15
@@ -227,13 +231,13 @@ for i=1:15
             ver_fazer_verbo.beijar(l,:,:) = data_oxy(:,t_ver_fazer_verbo(4,k):t_ver_fazer_verbo(4,k)+73); 
             end
         
-    %MÈdia dos verbos por sujeito
+    %M√©dia dos verbos por sujeito
     mean_ver_fazer_verbo.chutar(i,:,:) = mean (ver_verbo.chutar,1);
     mean_ver_fazer_verbo.mexer(i,:,:) = mean (ver_verbo.mexer,1);
     mean_ver_fazer_verbo.olhar(i,:,:) = mean (ver_verbo.olhar,1);
     mean_ver_fazer_verbo.beijar(i,:,:) = mean (ver_verbo.beijar,1);
      
-    %Salvando em .txt a mÈdia dos verbos para todos os sujeitos
+    %Salvando em .txt a m√©dia dos verbos para todos os sujeitos
     name = string(dataname_sub_ver_fazer_verbo);
     num = string(i);
     name = strcat(name,num,'mean_ver_fazer_verbo.chutar.txt');
@@ -260,13 +264,13 @@ for i=1:15
     clear ver_fazer_verbo.beijar
 end
 
-%MÈdia dos verbos para todos os sujeitos
+%M√©dia dos verbos para todos os sujeitos
 general_mean_ver_fazer_verbo.chutar = mean (mean_ver_verbo.chutar,1);
 general_mean_ver_fazer_verbo.mexer = mean (mean_ver_verbo.mexer,1);
 general_mean_ver_fazer_verbo.olhar = mean (mean_ver_verbo.olhar,1);
 general_mean_ver_fazer_verbo.beijar = mean (mean_ver_verbo.beijar,1);
 
-%Salvando em .txt a mÈdia dos verbos para todos os sujeitos
+%Salvando em .txt a m√©dia dos verbos para todos os sujeitos
 name = string(dataname_ver_fazer_verbo);
 name = strcat(name,'general_mean_ver_fazer_verbo.chutar.txt');
 dlmwrite(name,general_mean_ver_fazer_verbo.chutar,'delimiter','\t','newline','pc');
@@ -285,7 +289,7 @@ dlmwrite(name,general_mean_ver_fazer_verbo.beijar,'delimiter','\t','newline','pc
 
 %VER FAZER VIDEO
 
-%Criando vari·veis para agrupar os boquinhos de repetiÁ„o
+%Criando vari√°veis para agrupar os boquinhos de repeti√ß√£o
 ver_fazer_video=[];
 ver_fazer_video.chutar = zeros(3,42,74);
 ver_fazer_video.mexer = zeros(3,42,74);
@@ -297,7 +301,7 @@ mean_ver_fazer_video.mexer = zeros(15,42,74);
 mean_ver_fazer_video.olhar = zeros(15,42,74);
 mean_ver_fazer_video.beijar = zeros(15,42,74);
 
-participantes = cell(15,1); %linha È o n de sujeitos
+participantes = cell(15,1); %linha √© o n de sujeitos
 
 %Oxy
 for i=1:15
@@ -313,13 +317,13 @@ for i=1:15
             ver_fazer_video.beijar(l,:,:) = data_oxy(:,t_ver_fazer_video(4,k):t_ver_fazer_video(4,k)+73);
             end
         
-    %MÈdia dos verbos por sujeito
+    %M√©dia dos verbos por sujeito
     mean_ver_fazer_video.chutar(i,:,:) = mean (ver_verbo.chutar,1);
     mean_ver_fazer_video.mexer(i,:,:) = mean (ver_verbo.mexer,1);
     mean_ver_fazer_video.olhar(i,:,:) = mean (ver_verbo.olhar,1);
     mean_ver_fazer_video.beijar(i,:,:) = mean (ver_verbo.beijar,1);
      
-    %Salvando em .txt a mÈdia dos verbos para todos os sujeitos
+    %Salvando em .txt a m√©dia dos verbos para todos os sujeitos
     name = string(dataname_sub_ver_fazer_video);
     num = string(i);
     name = strcat(name,num,'mean_ver_fazer_video.chutar.txt');
@@ -346,13 +350,13 @@ for i=1:15
     clear ver_fazer_video.beijar
 end
 
-%MÈdia dos verbos para todos os sujeitos
+%M√©dia dos verbos para todos os sujeitos
 general_mean_ver_fazer_video.chutar = mean (mean_ver_verbo.chutar,1);
 general_mean_ver_fazer_video.mexer = mean (mean_ver_verbo.mexer,1);
 general_mean_ver_fazer_video.olhar = mean (mean_ver_verbo.olhar,1);
 general_mean_ver_fazer_video.beijar = mean (mean_ver_verbo.beijar,1);
 
-%Salvando em .txt a mÈdia dos verbos para todos os sujeitos
+%Salvando em .txt a m√©dia dos verbos para todos os sujeitos
 name = string(dataname_ver_fazer_video);
 name = strcat(name,'general_mean_ver_fazer_video.chutar.txt');
 dlmwrite(name,general_mean_ver_fazer_video.chutar,'delimiter','\t','newline','pc');
